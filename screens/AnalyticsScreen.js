@@ -56,12 +56,12 @@ export default function AnalyticsScreen() {
 
       setAllTransactions(currentMonthData);
       //total amount calculation (similar to ocaml syntax)
-      const total = data.reduce((sum, item) => sum + parseFloat((item.amount) || 0), 0);
+      const total = currentMonthData.reduce((sum, item) => sum + parseFloat((item.amount) || 0), 0);
       setTotalSpent(total);
 
       //aggregate items by category
       const aggregated = {};
-      data.forEach(item => {
+      currentMonthData.forEach(item => {
         if(aggregated[item.category]){
           aggregated[item.category] += item.amount;
         }
@@ -120,7 +120,7 @@ export default function AnalyticsScreen() {
         <Text style={styles.headerTitle}>Analytics</Text>
 
         <View style={styles.summaryCard}>
-          <Text style={styles.summaryLabel}>Total Tracked</Text>
+          <Text style={styles.summaryLabel}>This Month's Spendings</Text>
           <Text style={styles.summaryAmount}>₹{totalSpent.toFixed(2)}</Text>
         </View>
 

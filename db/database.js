@@ -40,7 +40,7 @@ export const syncTransactionsFromCloud = async (userId) => {
         ]
       );
     }
-    console.log(`✅ Synced ${cloudData.length} transactions from cloud to local device.`);
+    // console.log(`✅ Synced ${cloudData.length} transactions from cloud to local device.`);
   }
   catch(error){
     console.error("Error syncing from cloud:", error);
