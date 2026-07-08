@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, FlatList, SectionList, Alert, Animat
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { ScaledSheet } from 'react-native-size-matters';
 
 import { getTransactions, deleteTransaction, syncTransactionsFromCloud } from '../db/database';
 import { TransactionItem } from '../components/TransactionItem';
@@ -204,46 +205,46 @@ export default function HomeScreen({navigation}) {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   headerContainer: { 
     flexDirection: 'row', 
     justifyContent: 'space-between', 
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: '10@vs',
   },
   logoutButton: {
     backgroundColor: '#FED7D7', // Soft red background
-    padding: 10,
-    borderRadius: 12,
+    padding: '10@s',
+    borderRadius: '12@s',
     justifyContent: 'center',
     alignItems: 'center',
   },
   safeArea: {
     flex: 1,
     backgroundColor: '#F8F9FA',
+    paddingBottom: '-20@vs',
   },
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 20,
+    paddingHorizontal: '20@s',
   },
   greeting: {
-    fontSize: 28,
+    fontSize: '28@ms',
     fontWeight: 'bold',
     color: '#333',
-    marginBottom: 4,
-    marginLeft: 4
+    marginLeft: '4@s'
   },
   subGreeting: {
-    fontSize: 16,
+    fontSize: '16@ms',
     color: '#666',
-    marginBottom: 20,
+    marginBottom: '20@vs',
   },
   summaryCard: {
-    backgroundColor: '#6071a6',//2D3748
-    padding: 24,
-    borderRadius: 16,
-    marginBottom: 20,
+    backgroundColor: '#6071a6', //2D3748
+    paddingHorizontal: '24@s',
+    paddingVertical: '12@vs',
+    borderRadius: '16@s',
+    marginBottom: '10@vs',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,
@@ -252,36 +253,35 @@ const styles = StyleSheet.create({
   },
   summaryLabel: {
     color: '#A0AEC0',
-    fontSize: 14,
+    fontSize: '14@ms',
     textTransform: 'uppercase',
-    letterSpacing: 1,
-    marginBottom: 8,
+    letterSpacing: 1, // Kept absolute to prevent weird text stretching
+    marginBottom: '4@vs',
   },
   summaryAmount: {
     color: '#FFFFFF',
-    fontSize: 36,
+    fontSize: '36@ms',
     fontWeight: 'bold',
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: '18@ms',
     fontWeight: '600',
     color: '#333',
-    marginBottom: 8,
   },
-  //grouped data styles
+  // Grouped data styles
   dateHeaderContainer: {
-    backgroundColor: '#F8F9FA', // F8F9FA Matches safeArea to blend in nicely
-    paddingVertical: 8,
-    marginBottom: 5,
+    backgroundColor: '#F8F9FA', 
+    paddingVertical: '4@vs',
+    marginBottom: '5@vs',
   },
   dateHeaderText: {
-    fontSize: 16,
+    fontSize: '16@ms',
     fontWeight: 'bold',
     color: '#7687a0',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
-  //Swiping styles
+  // Swiping styles
   deleteBackground: {
     position: 'absolute',
     top: 0,
@@ -289,26 +289,26 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     backgroundColor: '#E53E3E',
-    borderRadius: 12,
+    borderRadius: '12@s',
     justifyContent: 'center',
-    paddingLeft: 20,
+    paddingLeft: '20@s',
   },
   deleteBackgroundText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: '14@ms',
   },
-  /////////////
+  // Items
   itemWrapper: {
-    marginBottom: 10,
+    marginBottom: '10@vs',
   },
   transactionRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#ffffff',
-    padding: 16,
-    borderRadius: 12,
+    padding: '10@s',
+    borderRadius: '12@s',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
@@ -316,37 +316,49 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   transactionTitle: {
-    fontSize: 16,
+    fontSize: '16@ms',
     fontWeight: '500',
     color: '#2D3748',
-    marginBottom: 4,
+    marginBottom: '4@vs',
   },
   transactionDate: {
-    fontSize: 14,
+    fontSize: '14@ms',
     color: '#A0AEC0',
   },
   transactionAmount: {
-    fontSize: 20,
+    fontSize: '20@ms',
     fontWeight: 'bold',
     color: '#E53E3E',
   },
   listPadding: {
-    paddingBottom: 20,
+    paddingBottom: '20@vs',
   },
-  emptyState: { alignItems: 'center', marginTop: 40 },
-  emptyStateText: { color: '#A0AEC0', fontSize: 16 },
-  //Search styles
+  emptyState: { 
+    alignItems: 'center', 
+    marginTop: '40@vs' 
+  },
+  emptyStateText: { 
+    color: '#A0AEC0', 
+    fontSize: '16@ms' 
+  },
+  // Search styles
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    paddingHorizontal: 15,
-    paddingVertical: 12,
-    marginBottom: 10,
+    borderRadius: '12@s',
+    paddingHorizontal: '12@s',
+    paddingVertical: '10@vs',
+    marginBottom: '10@vs',
     borderWidth: 1,
     borderColor: '#E2E8F0',
   },
-  searchIcon: { marginRight: 10 },
-  searchInput: { flex: 1, fontSize: 16, color: '#2D3748' },
+  searchIcon: { 
+    marginRight: '10@s' 
+  },
+  searchInput: { 
+    flex: 1, 
+    fontSize: '16@ms', 
+    color: '#2D3748' 
+  },
 });

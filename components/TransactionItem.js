@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   deleteBackground: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: '#E53E3E', borderRadius: 12, justifyContent: 'center', paddingLeft: 20 },
   deleteBackgroundText: { color: '#FFFFFF', fontWeight: 'bold', fontSize: 14 },
   itemWrapper: { marginBottom: 10 },
-  transactionRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#FFFFFF', padding: 16, borderRadius: 12, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.05, shadowRadius: 2, elevation: 2 },
+  transactionRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#FFFFFF', padding: 16, borderRadius: 11, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.05, shadowRadius: 2, elevation: 2 },
   transactionTitle: { fontSize: 16, fontWeight: '500', color: '#2D3748', marginBottom: 4 },
   transactionDate: { fontSize: 13, color: '#A0AEC0' },//A0AEC0
   transactionAmount: { fontSize: 20, fontWeight: 'bold', color: '#E53E3E' },
